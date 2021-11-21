@@ -99,14 +99,21 @@ li {
     flex-direction: column;
 }
 
-.container .whitebg .box{
+.container .whitebg .box.signup{
     color: #edf2f4;
     font-size: 1.2em;
     font-weight: 500;
     margin-bottom: 10px;
 }
 
-.container .whitebg .box button{
+.container .whitebg .box.signin{
+  color: #2b2d42;
+  font-size: 1.2em;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.container .whitebg .box .signinBtn{
     cursor: pointer;
     padding: 10px 20px;
     background: #edf2f4;
@@ -117,7 +124,18 @@ li {
     margin-top: 10px;
 }
 
-.formWx{
+.container .whitebg .box .signupBtn{
+  cursor: pointer;
+  padding: 10px 20px;
+  background: #ef233c;
+  color: #edf2f4;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  margin-top: 10px;
+}
+
+.wrapper .formWx{
     position: absolute;
     top:0;
     left:0;
@@ -130,9 +148,86 @@ li {
     align-items: center;
     box-shadow: 0 5px 45px rgba(0,0,0,0.15);
     transition: 0.5s ease-in-out;
+    overflow: hidden;
 }
 
 .formWx.active{
   background: #edf2f4;
   left: 50%;
 }
+
+.wrapper .formWx .form{
+  position: absolute;
+  left: 0;
+  width: 100%;
+  padding: 50px;
+  transition: 0.5s;
+}
+
+.wrapper .formWx.active .signinForm{
+  left: -100%;
+  transition-delay: 0s;
+}
+
+.wrapper .formWx .signinForm{
+  transition-delay: 0.25s;
+}
+
+.wrapper .formWx .signupForm{
+  left: 100%;
+  transition-delay: 0s;
+}
+.wrapper .formWx.active .signupForm{
+  left: 0;
+  transition-delay: 0.25s;
+}
+
+.wrapper .formWx .form form{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper .formWx .form.signupForm form h3 {
+  font-size: 1.30em;
+  color: #2b2d42;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.wrapper .formWx .form.signinForm form h3 {
+  font-size: 1.30em;
+  color: #edf2f4;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+
+
+.wrapper .formWx .form form input{
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 10px;
+  outline:none;
+  font-size: 16px;
+  border: 1px solid #2b2d42;
+}
+
+.wrapper .formWx .form.signinForm form .submit{
+  background: #edf2f4;
+  border: none;
+  color: #2b2d42;
+  max-width: 100px;
+  cursor: pointer;
+}
+
+.wrapper .formWx .form.signupForm form .submit{
+  background: #ef233c;
+  border: none;
+  color: #edf2f4;
+  max-width: 100px;
+  cursor: pointer;
+}
+
+
+
