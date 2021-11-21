@@ -1,6 +1,6 @@
 # Project-Screening-Donor-Darah
 
-*PROJECT STILL ON PROCESS*
+(*THIS WEBSITE IS STILL UNDERCONSTRUCTION*)
 
 Ini adalah tugas Project Akhir kelompok saya yang saya ketuai untuk Praktikum mata kuliah Pemrograman Web Teknik Informatika semester 5
 
