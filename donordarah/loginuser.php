@@ -64,13 +64,7 @@
         </div>
         
     </div>
-
     
-
-    <div class="footer">
-
-    </div>
-
     <script>
         const signinBtn = document.querySelector('.signinBtn')
         const signupBtn = document.querySelector('.signupBtn')

@@ -102,8 +102,10 @@ li {
 
 .container .whitebg .box.signup{
     color: #edf2f4;
+    line-height: 35px;
     font-size: 1.2em;
     font-weight: 500;
+    text-align: center;
     margin-bottom: 10px;
 }
 
@@ -174,26 +176,10 @@ li {
   transition-delay: 0.25s;
 }
 
-.wrapper .formWx .signupForm{
-  left: 100%;
-  transition-delay: 0s;
-}
-.wrapper .formWx.active .signupForm{
-  left: 0;
-  transition-delay: 0.25s;
-}
-
 .wrapper .formWx .form form{
   width: 100%;
   display: flex;
   flex-direction: column;
-}
-
-.wrapper .formWx .form.signupForm form h3 {
-  font-size: 1.30em;
-  color: #2b2d42;
-  margin-bottom: 20px;
-  font-weight: 500;
 }
 
 .wrapper .formWx .form.signinForm form h3 {
@@ -218,14 +204,6 @@ li {
   background: #edf2f4;
   border: none;
   color: #2b2d42;
-  max-width: 100px;
-  cursor: pointer;
-}
-
-.wrapper .formWx .form.signupForm form .submit{
-  background: #ef233c;
-  border: none;
-  color: #edf2f4;
   max-width: 100px;
   cursor: pointer;
 }
