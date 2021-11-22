@@ -1,3 +1,9 @@
+<?php 
+    if (isset($_POST['daftar'])){
+        header("Location: userregister.php");
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -56,7 +62,7 @@
                     <input type="text" placeholder="Username">
                     <input type="password" placeholder="Password">
                     <input type="password" placeholder="Confirm Password">
-                    <input type="submit" class="submit" value="Daftar">
+                    <input type="submit" class="submit" name="daftar" value="Daftar">
                 </form>
             </div>
 
