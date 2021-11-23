@@ -1,3 +1,13 @@
+<?php
+    if (isset($_POST['daftar2'])){
+        echo "<script>alert('Anda telah terdaftar');</script>";
+    }
+
+    if (isset($_POST['login'])){
+        echo "<script>alert('Selamat Datang Kembali');</script>";
+    }
+    
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

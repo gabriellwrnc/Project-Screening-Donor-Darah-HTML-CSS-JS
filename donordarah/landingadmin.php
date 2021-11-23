@@ -1,3 +1,9 @@
+<?php
+    if (isset($_POST['login'])){
+        echo "<script>alert('Selamat Datang Kembali');</script>";
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

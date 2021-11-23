@@ -36,8 +36,8 @@ li {
 
 .header-logo h1 {
   font-weight: 50;
-  margin-top: 52px;
-  margin-left: 25px;
+  margin-top: 25px;
+  margin-left: 30px;
   font-size: 40px;
   color: #edf2f4;
 }
@@ -47,8 +47,8 @@ li {
 }
 
 .header-logo img {
-    margin-top: 50px;
-    margin-left: 50px;
+    margin-top: 25px;
+    margin-left: 40px;
     position: relative;
     width: 50px;
 }

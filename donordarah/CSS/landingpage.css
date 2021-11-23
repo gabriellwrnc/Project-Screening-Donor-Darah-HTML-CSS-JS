@@ -36,8 +36,8 @@ li {
 
 .header-logo h1 {
   font-weight: 50;
-  margin-top: 52px;
-  margin-left: 25px;
+  margin-top: 25px;
+  margin-left: 30px;
   font-size: 40px;
   color: #edf2f4;
 }
@@ -52,8 +52,8 @@ li {
 }
 
 .header-logo img {
-    margin-top: 50px;
-    margin-left: 50px;
+    margin-top: 25px;
+    margin-left: 40px;
     position: relative;
     width: 50px;
 }
@@ -61,7 +61,7 @@ li {
 .logo-tangan {
     position: absolute;
     left: 950px;
-    top: -14px;
+    top: 11px;
     width: 700px;
 }
 
@@ -79,7 +79,7 @@ li {
 .wrapper-center{
     position: relative;
     left: 180px;
-    bottom: 20px;
+    bottom: 5px;
 }
 
 .wrapper-center .bigger{

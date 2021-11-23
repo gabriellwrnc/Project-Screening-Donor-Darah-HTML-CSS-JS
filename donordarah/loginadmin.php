@@ -41,11 +41,11 @@
             </div>
         <div class="formWx">
             <div class="form signinForm">
-                <form action="" method="post">
+                <form action="landingadmin.php" method="post">
                     <h3>Welcome, <i>Admin</i> <br> Type your <i>Admin</i> Account : </h3>
                     <input type="text" placeholder="Username">
                     <input type="password" placeholder="Password">
-                    <input type="submit" class="submit"value="Login">
+                    <input type="submit" class="submit" name="login" value="Login">
                 </form>
             </div>
         </div>

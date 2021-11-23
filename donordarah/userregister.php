@@ -1,3 +1,7 @@
+<?php 
+    
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,7 +42,7 @@
             </div>
             <div class="formWx">
                 <div class="form signinForm">
-                    <form action="" method="post">
+                    <form action="landinguser.php" method="post">
                         <h3>Halo "(username)", <br> Mari bantu kami <br> melengkapi data dirimu : </h3>
                         <input type="text" placeholder="Nama">
                         <input type="text" placeholder="NIK">
@@ -53,7 +57,7 @@
                         <input type="radio" name="jenis_kelamin" id = "perempuan" > 
                         <label for="perempuan" class="label">Perempuan</label>
 
-                        <input type="submit" class="submit"name="daftardata" value="Daftar">
+                        <input type="submit" class="submit" name="daftar2" value="Daftar">
                     </form>
                 </div>
             </div>

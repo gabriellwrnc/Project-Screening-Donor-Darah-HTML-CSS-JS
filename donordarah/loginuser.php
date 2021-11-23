@@ -1,7 +1,9 @@
 <?php 
+
     if (isset($_POST['daftar'])){
         header("Location: userregister.php");
     }
+
 ?>
 
 <!DOCTYPE html>
@@ -48,11 +50,11 @@
             </div>
         <div class="formWx">
             <div class="form signinForm">
-                <form action="" method="post">
+                <form action="landinguser.php" method="post">
                     <h3>Selamat Datang, <i>Pendonor</i> <br> Masukkan akun anda : </h3>
                     <input type="text" placeholder="Username">
                     <input type="password" placeholder="Password">
-                    <input type="submit" class="submit"value="Login">
+                    <input type="submit" class="submit" name="login" value="Login">
                 </form>
             </div>
 
