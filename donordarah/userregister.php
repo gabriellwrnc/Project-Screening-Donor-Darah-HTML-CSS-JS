@@ -1,5 +1,12 @@
 <?php 
-    
+    session_start();
+	if(!isset($_SESSION["username_daftar"])){
+		echo "<script>
+				alert('Masukkan akun baru terlebih dahulu di halaman awal user untuk melakukan registrasi');
+				window.location = 'loginuser.php';
+				</script>";
+		exit;
+	}
 ?>
 
 <!DOCTYPE html>
@@ -42,23 +49,82 @@
             </div>
             <div class="formWx">
                 <div class="form signinForm">
-                    <form action="landinguser.php" method="post">
-                        <h3>Halo "(username)", <br> Mari bantu kami <br> melengkapi data dirimu : </h3>
-                        <input type="text" placeholder="Nama">
-                        <input type="text" placeholder="NIK">
-                        <input type="text" placeholder="Email">
-                        <input type="text" placeholder="Tempat Lahir">
-                        <input type="date" placeholder="Tanggal Lahir">
-                        <input type="text" placeholder="Alamat Lengkap">
+                    <form action="" method="post">
+                        <h3>Halo <?php echo $_SESSION['username_daftar']; ?>, <br> Mari bantu kami <br> melengkapi data dirimu : </h3>
+                        <input type="text" name="nama" placeholder="Nama" required>
+                        <input type="text" name="nik" placeholder="NIK" required>
+						<input type="tel" name="no_telepon" placeholder="Nomor Telepon" required>
+                        <input type="text" name="email"placeholder="Email" required>
+                        <input type="text" name="tempat_lahir" placeholder="Tempat Lahir" required>
+                        <input type="date" name="tanggal_lahir" placeholder="Tanggal Lahir" required>
+                        <input type="text" name="alamat_lengkap" placeholder="Alamat Lengkap" required>
                         <p>Jenis Kelamin :</p> 
-                        <input type="radio" name="jenis_kelamin" id = "laki" >
+                        <input type="radio" name="jenis_kelamin" id = "laki" value="Laki-Laki" checked>
                         <label for="laki" class="label">Laki-laki</label>
 
-                        <input type="radio" name="jenis_kelamin" id = "perempuan" > 
+                        <input type="radio" name="jenis_kelamin" id = "perempuan" value="Perempuan"> 
                         <label for="perempuan" class="label">Perempuan</label>
 
                         <input type="submit" class="submit" name="daftar2" value="Daftar">
                     </form>
+					<?php
+						if(isset($_POST["daftar2"])){
+							include ("config.php");
+							$username = $_SESSION['username_daftar'];
+							$password = password_hash($_SESSION['password_daftar'], PASSWORD_DEFAULT);
+							$nama = mysqli_real_escape_string($conn, $_POST["nama"]);
+							$nik = $_POST["nik"];
+							$no_telepon = $_POST["no_telepon"];
+							$email = mysqli_real_escape_string($conn, $_POST["email"]);
+							$tempat_lahir = mysqli_real_escape_string($conn, $_POST["tempat_lahir"]);
+							$tanggal_lahir = mysqli_real_escape_string($conn, $_POST["tanggal_lahir"]);
+							$alamat_lengkap = mysqli_real_escape_string($conn, $_POST["alamat_lengkap"]);
+							$jenis_kelamin = mysqli_real_escape_string($conn, $_POST["jenis_kelamin"]);
+							
+							$sqlnik = "SELECT nik FROM user WHERE nik = '$nik'";
+							$sqlemail = "SELECT email FROM user WHERE email = '$email'";
+							
+							$resnik = mysqli_query($conn, $sqlnik);
+							$resemail = mysqli_query($conn, $sqlemail);
+							
+							if(mysqli_num_rows($resnik) >= 1){
+								echo "<script>
+								alert('NIK sudah dipakai, anda tidak bisa mendaftar 2 akun');
+								history.back();
+								</script>";
+							}
+							else if(mysqli_num_rows($resemail) >= 1){
+								echo "<script>
+								alert('Email sudah dipakai, silahkan menggunakan email lain');
+								history.back();
+								</script>";
+							}
+							else{
+								$sqlid = "SELECT AUTO_INCREMENT FROM information_schema.TABLES WHERE TABLE_SCHEMA = 'donor_darah' AND TABLE_NAME = 'akun'";
+								
+								$resid = mysqli_query($conn, $sqlid);
+								$ai = mysqli_fetch_assoc($resid);
+								$id_akun = $ai['AUTO_INCREMENT'];
+								
+								$sqlakun = "INSERT INTO akun (username, password, role) VALUES ('".strtolower($username)."', '$password', 'User')";
+								$sqluser = "INSERT INTO user (nik, nama, no_telepon, email, tempat_lahir, tanggal_lahir, alamat_lengkap, jenis_kelamin, akun_id_akun) VALUES ('$nik', '".ucwords($nama)."', '$no_telepon', '".strtolower($email)."', '".ucwords($tempat_lahir)."', '$tanggal_lahir', '".ucwords($alamat_lengkap)."', '$jenis_kelamin', '$id_akun')";
+								
+								if(mysqli_query($conn, $sqlakun) && mysqli_query($conn, $sqluser)){
+									$_SESSION['username'] = $_SESSION['username_daftar'];
+									$_SESSION['id_akun'] = $id_akun;
+									$_SESSION['username_daftar'] = null;
+									$_SESSION['password_daftar'] = null;
+									echo "<script>
+									alert('Register telah berhasil, silahkan login menggunakan akun anda yang baru');
+									window.location = 'landingpage.php';
+									</script>";
+								}
+								else{
+									echo "Error: ". mysqli_error($conn);
+								}
+							}
+						}
+					?>
                 </div>
             </div>
         </div>

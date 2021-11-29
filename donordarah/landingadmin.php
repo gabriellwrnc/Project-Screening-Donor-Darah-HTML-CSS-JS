@@ -1,7 +1,12 @@
 <?php
-    if (isset($_POST['login'])){
-        echo "<script>alert('Selamat Datang Kembali');</script>";
-    }
+	session_start();
+	if(!isset($_SESSION['username_admin'])){
+		echo "<script>
+			alert('Lakukan login terlebih dahulu di halaman awal untuk bisa mengakses website ini');
+			window.location = 'index.php';
+			</script>";
+		exit;
+	}
 ?>
 
 <!DOCTYPE html>
@@ -66,5 +71,6 @@
             <td><button>Edit</button></td>
         </tr>
     </table>
+    <a href="logout.php">Logout</a>
 </body>
 </html>
