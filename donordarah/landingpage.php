@@ -52,7 +52,7 @@
         <div class="main">
             <div class="container">
                 <ul>
-                    <li><h1>BLABLA BLABLA BLA</h1></li>
+                    <li><h1>Selamat Datang, "(username)"</h1></li>
                     <li>
                         <p>ININININININININ APAJHASJDH WAUIHDUIWAHDSJKAHWUIH AJISDH</p>
                         <p>ININININININININ APAJHASJDH WAUIHDUIWAHDSJKAHWUIH AJISDH</p>
@@ -74,23 +74,29 @@
 
         <div class="footer">
             <ul>
-                <li class="konten1">
-                    <h3>Manfaat</h3> 
-                    <h3> Mendonorkan</h3>
-                </li>
-                <li class="konten2">
-                    <h3>Jenis Golongan</h3>
-                    <h3>Darah</h3>
-                </li>
-                <li class="konten3">
-                    <h3>Kecocokan</h3>
-                    <h3>Sel Darah</h3>
-                </li>
+                <a href="#manfaat">
+                    <li class="konten1">
+                        <h3>Manfaat</h3> 
+                        <h3> Mendonorkan</h3>
+                    </li>
+                </a>
+                <a href="#goldar">
+                    <li class="konten2">
+                        <h3>Jenis Golongan</h3>
+                        <h3>Darah</h3>
+                    </li>
+                </a>
+                <a href="#tabel">
+                    <li class="konten3">
+                        <h3>Kecocokan</h3>
+                        <h3>Sel Darah</h3>
+                    </li>
+                </a>
             </ul>
         </div>
     </div>
 
-    <div class="isi-konten">
+    <div class="isi-konten" id="manfaat">
         <div class="wrapper-konten">
             <h1>Manfaat Mendonorkan</h1>
             <ul>
@@ -118,7 +124,7 @@
             <img src="img/donateblood.png">
         </div>
     </div>
-    <div class="isi-konten2">
+    <div class="isi-konten2" id="goldar">
         <div class="wrapper-konten2">
             <h1>Jenis Golongan Darah</h1>
             <ul>
@@ -146,9 +152,9 @@
             <img src="img/goldar.png">
         </div>
     </div>
-    <div class="isi-konten3">
+    <div class="isi-konten3" id="tabel">
         <div class="wrapper-konten3">
-            <h1>Jenis Golongan Darah</h1>
+            <h1>Tabel Kecocokan Sel Darah</h1>
             <table border="1" cellpadding="20" style="width:100%">
                 <tr>
                     <th>Penerima</th>

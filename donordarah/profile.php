@@ -21,7 +21,6 @@
 	$no_telepon = $profil['no_telepon'];
 	$email = $profil['email'];
 	$tempat_lahir = $profil['tempat_lahir'];
-	$tanggal_lahir = $profil['tanggal_lahir'];
 	$alamat_lengkap = $profil['alamat_lengkap'];
 ?>
 <!DOCTYPE html>
@@ -60,7 +59,6 @@
         <p>No.Telepon : <?php echo $no_telepon; ?></p> <a href="#">ubah</a>
         <p>Email : <?php echo $email; ?></p> <a href="#">ubah</a>
         <p>Tempat Lahir : <?php echo $tempat_lahir; ?></p> <a href="#">ubah</a>
-        <p>Tanggal Lahir : <?php echo $tanggal_lahir; ?></p> <a href="#">ubah</a>
         <p>Alamat : <?php echo $alamat_lengkap; ?></p> <a href="#">ubah</a>
     </div>
 </body>

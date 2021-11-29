@@ -26,7 +26,6 @@
             <td>Nomor Telepon</td>
             <td>Email</td>
             <td>Tempat Lahir</td>
-            <td>Tanggal Lahir</td>
             <td>Alamat Lengkap</td>
             <td>Aksi</td>
         </tr>
@@ -35,7 +34,6 @@
             <td>0852XXXXXXXX</td>
             <td>cozycat2001@gmail.com</td>
             <td>Samarinda</td>
-            <td>23/01/01</td>
             <td>Jln.Samratulangi</td>
             <td><button>Hapus Data</button></td>
         </tr>

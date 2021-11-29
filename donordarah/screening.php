@@ -83,7 +83,7 @@
             <input type="radio" name="riwayat_donor" id="tidak5" value=">3 Bulan">
             <label for="tidak5">>3 Bulan</label>
             <br>
-            <input type="radio" name="riwayat_donor" id="pernah5" value="<3 Bulan">
+            <input type="radio" name="riwayat_donor" id="pernah5" value="<=3 Bulan">
             <label for="pernah5"><=3 Bulan</label> <br><br>
 
             <button type="submit" name="screening">SUBMIT</button>
@@ -104,8 +104,18 @@
 				$sqlscreening = "INSERT INTO form (id_form, umur, berat_badan, hiv, pasangan_hiv, kontak_hepatitis, suntik, sex_period, riwayat_donor) VALUES ('$akun_id_akun', '$umur', '$berat_badan', '$hiv', '$pasangan_hiv', '$kontak_hepatitis', '$suntik', '$sex_period', '$riwayat_donor')";
 				$sqlnik = "UPDATE form SET user_nik = (SELECT nik FROM  user WHERE akun_id_akun = '$akun_id_akun') WHERE id_form = '$akun_id_akun'";
 				$sqlidform = "UPDATE user SET form_id_form = '$akun_id_akun' WHERE akun_id_akun = '$akun_id_akun'";
-				if(mysqli_query($conn, $sqlscreening) && mysqli_query($conn, $sqlnik)){
+				
+				if($umur < 17 && $umur > 50 || $berat_badan < 47 || $hiv == "Pernah" || $pasangan_hiv == "Pernah" || $kontak_hepatitis == "Pernah" || $suntik == "Pernah" || $hiv == "Pernah" || $sex_period == "Pernah" || $riwayat_donor == "<=3 Bulan"){
+					$sqlhasil = "INSERT INTO hasil (id_hasil, hasil_form, form_id_form) VALUES ($akun_id_akun, 'Tidak dapat mendonorkan darah', $akun_id_akun)";
+				}
+				else{
+					$sqlhasil = "INSERT INTO hasil (id_hasil, hasil_form, form_id_form) VALUES ($akun_id_akun, 'Bisa mendonorkan darah', $akun_id_akun)";
+				}
+				$sqlidhasil = "UPDATE form SET hasil_id_hasil = '$akun_id_akun' WHERE id_form = $akun_id_akun";
+				
+				if(mysqli_query($conn, $sqlscreening) && mysqli_query($conn, $sqlnik) && mysqli_query($conn, $sqlhasil)){
 					mysqli_query($conn, $sqlidform);
+					mysqli_query($conn, $sqlidhasil);
 					echo "<script>
 						alert('Screening telah berhasil!, anda dialihan ke landing page');
 						window.location = 'landingpage.php';
