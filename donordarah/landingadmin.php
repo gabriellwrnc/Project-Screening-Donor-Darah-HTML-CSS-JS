@@ -15,60 +15,66 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/landingadmin.css">
     <title>Document</title>
 </head>
 <body>
-    <h1>Admin</h1>
-    <h3>Database User</h3>
-    <table border="1" cellpadding="20">
-        <tr>
-            <td>Nama</td>
-            <td>Nomor Telepon</td>
-            <td>Email</td>
-            <td>Tempat Lahir</td>
-            <td>Alamat Lengkap</td>
-            <td>Aksi</td>
-        </tr>
-        <tr>
-            <td>Akhmad Syaukani Akbar</td>
-            <td>0852XXXXXXXX</td>
-            <td>cozycat2001@gmail.com</td>
-            <td>Samarinda</td>
-            <td>Jln.Samratulangi</td>
-            <td><button>Hapus Data</button></td>
-        </tr>
-    </table>
+    <div class="wrapper">
+		<div class="header">
+			<div class="header-logo">
+				<ul>
+					<li><img src="img/Palang.png"></li>
+					<li>
+						<h1>AYO DONOR</h1>
+					</li>
+				</ul>
+			</div>
+			<div class="header-list">
+            <ul>
+					<li onclick="window.location = 'profileadmin.php'">Profile</li>
+					<li onclick="window.location = 'logout.php'">Logout</li>
+				</ul>
+			</div>
+		</div>
+        <div class="content">
+			<div class="box">
+				<div class="form">
+                    <h3 class="box-title">DATABASE CENTER</h3> <br>
+                    <div class="tabel">
+                        <table border="1" cellpadding="16">
+                            <tr>
+                                <th>No.</th>
+                                <th>Nama</th>
+                                <th>NIK</th>
+                                <th>Jenis Kelamin</th>
+                                <th>No.Telepon</th>
+                                <th>Email</th>
+                                <th>Alamat Lengkap</th>
+                                <th>Tempat Lahir</th>
+                                <th>Aksi</th>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>Gabriel D Lawrence</td>
+                                <td>1915026020</td>
+                                <td>Laki-Laki</td>
+                                <td>082155663333</td>
+                                <td>gab@gmail.com</td>
+                                <td>Jl.Cikunir Raya</td>
+                                <td>Bekasi</td>
+                                <td>
+                                    <a href="delete.php" class = "delete" onclick="return confirm('you want to delete this data?')"><span class="delete"><ion-icon name="trash-outline"></ion-icon></span></a> <br> <br>
+                                    <a href="formuser.php"> <button>Form User</button> </a>
+                                </td>
+                                </tr>
+                        </table>
+                    </div>
+				</div>
+            </div>
+        </div>
+    </div>    
 
-    <h3>Data Form User</h3>
-    <table border="1" cellpadding="20">
-        <tr>
-            <td>Umur</td>
-            <td>Berat Badan</td>
-            <td>Apakah pernah menghidap HIV/AIDS?</td>
-            <td>Apakah anda memiliki pasangan yang mengidap HIV/AIDS?</td>
-            <td>Apakah anda atau pasangan pernah melakukan kontak dengan seseorang yang memiliki hepatitis B atau C?</td>
-            <td>Apakah pernah menyuntikkan atau disuntikkan obat-obatan tanpa sepengetahuan dokter</td>
-            <td>Apakah pernah melakukan oral atau anal seks tanpa menggunakan pengaman (kondom)?</td>
-            <td>Kapan terakhir kali anda mendonorkan darah?</td>
-            <td>Apakah Sedang Menstruasi?</td>
-            <td>Hasil</td>
-            <td>Alasan</td>
-        </tr>
-        <tr>
-            <td>80kg</td>
-            <td>Tidak Pernah</td>
-            <td>Tidak Pernah</td>
-            <td>Tidak Pernah</td>
-            <td>Tidak Pernah</td>
-            <td>Tidak Pernah</td>
-            <td>Tidak Pernah</td>
-            <td>3 bulan yang lalu</td>
-            <td> - </td>
-            <td>Tidak dapat mendonorkan darah</td>
-            <td>Batasan untuk mendonorkan darah adalah >=17 tahun dan <=50 tahun</td>
-            <td><button>Edit</button></td>
-        </tr>
-    </table>
-    <a href="logout.php">Logout</a>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

@@ -52,12 +52,14 @@
         <div class="main">
             <div class="container">
                 <ul>
-                    <li><h1>Selamat Datang, "(username)"</h1></li>
+                    <li><h1>Selamat Datang, <?php echo $_SESSION['username']; ?></h1></li>
                     <li>
-                        <p>ININININININININ APAJHASJDH WAUIHDUIWAHDSJKAHWUIH AJISDH</p>
-                        <p>ININININININININ APAJHASJDH WAUIHDUIWAHDSJKAHWUIH AJISDH</p>
-                        <p>ININININININININ APAJHASJDH WAUIHDUIWAHDSJKAHWUIH AJISDH</p>
-                        <p>ININININININININ APAJHASJDH WAUIHDUIWAHDSJKAHWUIH AJISDH</p>
+                        <p>Website ini akan memudahkan kamu melakukan screening tanpa perlu</p>
+                        <p>datang kerumah sakit atau tempat mendonorkan darah lainnya.</p>
+                        <p>Website ini juga akan menunjukkan kelayakanmu mendonorkan darah</p>
+                        <p>berdasarkan dari jawaban kamu di form screening kami.</p>
+                        <br>
+                        <p><i>Jadi mohon mengisi dengan penuh tanggung jawab ☺</i></p>
                     </li>
 					<?php
 						if(is_null($form['form_id_form'])){

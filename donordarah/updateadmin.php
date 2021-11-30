@@ -1,13 +1,3 @@
-<?php
-	session_start();
-	if(!isset($_SESSION['username'])){
-		echo "<script>
-			alert('Lakukan login terlebih dahulu di halaman awal untuk bisa mengakses website ini');
-			window.location = 'index.php';
-			</script>";
-		exit;
-	}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,7 +25,7 @@
 			<div class="box">
 				<div class="form">
 					<form action="" method="POST">
-						<h3 class="box-title">SCREENING PENDONOR</h3> <br>
+						<h3 class="box-title">UPDATE SCREENING PENDONOR</h3> <br>
 						<h5>NOTES: Tolong anda isi form ini berdasarkan kebenaran dan keadaan yang terjadi, karena keputusan anda akan berdampak kepada orang lain !</h5> <br>
 
 						<table>

@@ -91,7 +91,7 @@
 						<?php
 						include("config.php");
 							$username = $_SESSION["username"];
-							$sqlidkelamin = "SELECT jenis_kelamin FROM akun, user WHERE username = '$username' AND role = 'User'";
+							$sqlidkelamin = "SELECT user.jenis_kelamin FROM akun INNER JOIN user ON akun.id_akun = user.akun_id_akun WHERE username = '$username' AND role = 'User'";
 							$residkelamin = mysqli_query($conn, $sqlidkelamin);
 							$idkelamin = mysqli_fetch_assoc($residkelamin);
 							if($idkelamin['jenis_kelamin'] == "Laki-Laki"){
@@ -120,7 +120,7 @@
 					
 				</div>
 				<div class="hasil" >
-					<h3>Hasil : 
+					<h3>HASIL : 
 					<?php
 						include ('config.php');
 						$username = $_SESSION['username'];
@@ -130,10 +130,23 @@
 						$hasil_form = $hasil['hasil_form'];
 						if($hasil_form == 'Bisa mendonorkan darah'){
 							echo $hasil_form;
+							echo "<style>
+									.hasil{
+										background-color: #2ecc71;
+										border-radius: 10px;
+										text-align: center;
+									}
+								</style>";
 							$alasan = false;
 						}
 						else if($hasil_form == 'Tidak dapat mendonorkan darah'){
 							echo $hasil_form;
+							echo "<style>
+									.hasil{
+										background-color: #ff3030;
+										border-radius: 15px;
+									}
+								</style>";
 							$alasan = true;
 						}
 						
@@ -143,40 +156,40 @@
 					<?php
 						if($alasan == true){
 							$pernah = true;
-							echo "Alasan:<br/>";
+							echo "Alasan :<br/>";
 							if($umur < 17 || $umur > 50){
-								echo "Karena batas umur untuk mendonor darah adalah >= 17 tahun dan <= 50 tahun<br/>";
+								echo "- Karena batas umur untuk mendonor darah adalah >= 17 tahun dan <= 50 tahun<br/>";
 								$pernah = false;
 							}
 							else if($berat_badan < 47){
-								echo "Karena minimal berat badan untuk mendonor adalah >= 47 KG<br/>";
+								echo "- Karena minimal berat badan untuk mendonor adalah >= 47 KG<br/>";
 								$pernah = false;
 							}
 							else if($pernah == true){
 								if($hiv == "Pernah"){
-									echo "Karena anda mengidap HIV/AIDS<br/>";
+									echo "- Karena anda mengidap HIV/AIDS<br/>";
 								}
 								if($pasangan_hiv == "Pernah"){
-									echo "Karena anda memiliki pasangan yang mengidap HIV/AIDS, dikhawatirkan anda mempunyai penyakit tersebut<br/>";
+									echo "- Karena anda memiliki pasangan yang mengidap HIV/AIDS, dikhawatirkan anda mempunyai penyakit tersebut<br/>";
 								}
 								if($kontak_hepatitis == "Pernah"){
-									echo "Karena anda pernah melakukan kontak dengan seseorang yang memiliki penyakit hepatitis B atau C, dikhawatirkan anda tertular pada penyakit tersebut<br/>";
+									echo "- Karena anda pernah melakukan kontak dengan seseorang yang memiliki penyakit hepatitis B atau C, dikhawatirkan anda tertular pada penyakit tersebut<br/>";
 								}
 								if($suntik == "Pernah"){
-									echo "Karena anda pernah menyuntik obat tanpa sepengetahuan dokter, dikhawatirkan obat tersebut akan berdampak buruk bagi seseorang<br/>";
+									echo "- Karena anda pernah menyuntik obat tanpa sepengetahuan dokter, dikhawatirkan obat tersebut akan berdampak buruk bagi seseorang<br/>";
 								}
 								if($idkelamin['jenis_kelamin'] == "Laki-Laki"){
 									if($sex_period == "Pernah"){
-										echo "Karena anda pernah melakukan oral atau anal seks tanpa menggunakan pengaman(kondom)<br/>";
+										echo "- Karena anda pernah melakukan oral atau anal seks tanpa menggunakan pengaman(kondom)<br/>";
 									}
 								}
 								if($idkelamin['jenis_kelamin'] == "Perempuan"){
 									if($sex_period == "Iya"){
-										echo "Karena anda sedang menstruasi<br/>";
+										echo "- Karena anda sedang menstruasi<br/>";
 									}
 								}
 								if($riwayat_donor == "<=3 Bulan"){
-									echo "Karena anda sudah mendonor kurang dari sama dengan 3 bulan<br>";
+									echo "- Karena anda sudah mendonor kurang dari sama dengan 3 bulan<br>";
 								}
 							}
 						}

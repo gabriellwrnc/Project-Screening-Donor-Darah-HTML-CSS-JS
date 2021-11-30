@@ -117,6 +117,10 @@ li h1 {
     color: #D80032;
 }
 
+.container li p{
+    font-size: 20px;
+}
+
 .main .container .desc{
     position: relative;
     bottom: 150px;
