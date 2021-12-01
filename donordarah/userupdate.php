@@ -58,7 +58,7 @@ $profil = mysqli_fetch_assoc($resprofil);
                             </tr>
                             <tr>
                                 <td>Nik</td>
-                                <td>:<input type="text" name="nik" value="<?php echo $profil['nik']; ?>" required></td>
+                                <td>:<input type="number" name="nik" value="<?php echo $profil['nik']; ?>" min='0' required></td>
                             </tr>
                             <tr>
                                 <td>Nomor Telepon</td>
@@ -121,15 +121,16 @@ $profil = mysqli_fetch_assoc($resprofil);
                 <?php
                 if (isset($_POST['update'])) {
                     include("config.php");
-                    $nama = $_POST['nama'];
+                    $tempnik = $profil['nik'];
+                    $nama = htmlspecialchars($_POST['nama']);
                     $nik = $_POST['nik'];
                     $jenis_kelamin = $_POST['jenis_kelamin'];
-                    $no_telepon = $_POST['no_telepon'];
-                    $email = $_POST['email'];
-                    $tempat_lahir = $_POST['tempat_lahir'];
-                    $alamat_lengkap = $_POST['alamat_lengkap'];
+                    $no_telepon = htmlspecialchars($_POST['no_telepon']);
+                    $email = htmlspecialchars($_POST['email']);
+                    $tempat_lahir = htmlspecialchars($_POST['tempat_lahir']);
+                    $alamat_lengkap = htmlspecialchars($_POST['alamat_lengkap']);
 
-                    $sqlupdate = "UPDATE user SET nik = '$nik', nama = '$nama', no_telepon = '$no_telepon', email = '$email', tempat_lahir = '$tempat_lahir', jenis_kelamin = '$jenis_kelamin' WHERE nik = $nik";
+                    $sqlupdate = "UPDATE user SET nik = '$nik', nama = '$nama', no_telepon = '$no_telepon', email = '$email', tempat_lahir = '$tempat_lahir', jenis_kelamin = '$jenis_kelamin' WHERE nik = $tempnik";
                     if (mysqli_query($conn, $sqlupdate)) {
                         echo "<script>
 								alert('Update telah berhasil!, anda dialihan ke halaman profile');

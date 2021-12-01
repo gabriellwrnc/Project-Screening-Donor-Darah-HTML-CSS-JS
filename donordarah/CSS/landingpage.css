@@ -11,6 +11,7 @@
 
 body {
     background: #EDF2F4;
+    height: fit-content;
 }
 
 a{
@@ -337,18 +338,98 @@ a.btn-scr:hover span{
 
 .isi-konten3 {
     position: relative;
-    padding-left: 250px;
     bottom: 10px;
     width: 100%;
-    height: 800px;
+    height: 900px;
     background-color: #D80032;
 }
 
 .wrapper-konten3 {
-    margin-left: 50px;
-    margin-top: 60px;
+    position: relative;
+    top: 60px;
+    margin: 0 auto;
     width: 980px;
     height: 490px;
     color: white;
 }
 
+.wrapper-konten3 table{
+    width: 900px;
+}
+
+.wrapper-konten3 table td{
+    width: 100px;
+    border: 1px solid #edf2f4;
+    height: 40px;
+}
+
+.isi-konten3 footer{
+    text-align: center;
+    position: relative;
+    overflow: visible;
+    top: 310px;
+    width: 100%;
+    background: #EDF2F4;
+    height: 100px;
+    padding: 20px 50px;
+}
+
+footer p{
+    position: relative;
+    top: 20px;
+    color: #000;
+    text-align: center;
+    font-size: 18px;
+}
+
+footer .wave{
+    position: absolute;
+    top: -100px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: url(wave.png);
+    background-size: 1000px 100px;
+}
+
+footer .wave#wave1{
+    z-index: 1000;
+    opacity: 1;
+    bottom: 0;
+    animation: animateWave1 4s linear infinite;
+}
+footer .wave#wave2{
+    z-index: 999;
+    opacity: 0.5;
+    bottom: 10px;
+    animation: animateWave2 4s linear infinite;
+}
+footer .wave#wave3{
+    z-index: 1000;
+    opacity: 0.2;
+    bottom: 15px;
+    animation: animateWave1 3s linear infinite;
+}
+footer .wave#wave2{
+    z-index: 999;
+    opacity: 0.7;
+    bottom: 20px;
+    animation: animateWave2 3s linear infinite;
+}
+
+@keyframes animateWave1 {
+    0%{
+        background-position-x: 1000px;
+    }
+    100%{
+        background-position-x: 0px;
+    }
+}
+@keyframes animateWave2 {
+    0%{
+        background-position-x: 0px;
+    }
+    100%{
+        background-position-x: 1000px;
+    }
+}

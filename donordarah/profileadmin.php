@@ -1,3 +1,23 @@
+<?php
+session_start();
+if (!isset($_SESSION['username_admin'])) {
+	echo "<script>
+			alert('Lakukan login terlebih dahulu di halaman awal untuk bisa mengakses website ini');
+			window.location = 'index.php';
+			</script>";
+	exit;
+}
+?>
+<?php
+include("config.php");
+$username = $_SESSION['username_admin'];
+$sqlprofil = "SELECT * FROM akun INNER JOIN admin ON akun.id_akun = admin.akun_id_akun WHERE username = '$username' AND role = 'Admin'";
+$resprofil = mysqli_query($conn, $sqlprofil);
+$profil = mysqli_fetch_assoc($resprofil);
+
+$nama = $profil['nama'];
+$no_telepon = $profil['no_telepon'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,13 +57,13 @@
 						<tr>
 							<td>Nama</td>
 							<td>
-								<p>: Ahmad Syaukani</p>
+								<p>: <?php echo $nama; ?></p>
 							</td>
 						</tr>
 						<tr>
 							<td>No.Telepon</td>
 							<td>
-								<p>: 082156478839</p>
+								<p>: <?php echo $no_telepon; ?></p>
 							</td>
 						</tr>
 						</tr>

@@ -116,6 +116,7 @@ button {
   color: #edf2f4;
   background: #8d99ae;
   margin-top: 30px;
+  margin-bottom: 30px;
   margin-left: 130px;
   text-align: center;
   padding: 20px 10px;
@@ -123,6 +124,7 @@ button {
   outline: none;
   border: 3px solid #8d99ae;
   border-radius: 20px;
+  transition: 0.5s;
   cursor: pointer;
 }
 
@@ -136,5 +138,6 @@ button:hover {
   color: #2b2d42;
   font-weight: 600;
   border: 3px solid #edf2f4;
-  box-shadow: 0 20px 60px #edf2f499;
+  box-shadow: 0 0px 60px #edf2f499
+  ,0 0px 30px #edf2f499;
 }

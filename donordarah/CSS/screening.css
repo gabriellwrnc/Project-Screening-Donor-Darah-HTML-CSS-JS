@@ -231,7 +231,9 @@ li h1 {
   position: relative;
   background: none;
   display: block;
-  margin: 20px auto;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 30px;
   text-align: center;
   border: 3px solid #000000;
   padding: 14px 40px;
@@ -247,4 +249,5 @@ li h1 {
   border: 3px solid #2ecc71;
   background: #2ecc71;
   color: #edf2f4;
+  box-shadow: 0 0 30px #2ecc71;
 }

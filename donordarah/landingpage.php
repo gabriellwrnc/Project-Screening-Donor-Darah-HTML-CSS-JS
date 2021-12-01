@@ -98,10 +98,9 @@
     </div>
 
     <div class="isi-konten" id="manfaat">
-        <div class="wrapper-konten">
-            <h1>Manfaat Mendonorkan</h1>
+        <div class="wrapper-konten" >
+            <h1 >Manfaat Mendonorkan</h1>
             <ul>
-                <li>
                     <h3>1. Mendeteksi Penyakit Serius</h3>
                     <p>Proses donor darah tentunya harus melalui beberapa prosedur. Tiap kali seseorang ingin mendonorkan darahnya, prosedur standarnya adalah pemferiksaan darah untuk mendeteksi penyakit serius. Sebut saja HIV, sifilis, hepatitis B, hepatitis C, hingga malaria. Hal ini penting dilakukan demi mengantisipasi adanya penularan penyakit melalui transfusi darah. Prosedur ini juga menjadi “lampu kuning” bagi pendonor agar lebih memperhatikan kondisi kesehatannya sendiri.</p>
                 </li>
@@ -155,18 +154,22 @@
     </div>
     <div class="isi-konten3" id="tabel">
         <div class="wrapper-konten3">
-            <h1>Tabel Kecocokan Sel Darah</h1>
-            <table border="1" cellpadding="20" style="width:100%">
+            <h1 style="text-align:center;">Tabel Kecocokan Sel Darah</h1> <br>
+            <table style="text-align:center; margin:0 auto;">
                 <tr>
-                    <th>Penerima</th>
-                    <th>O-</th>
-                    <th>O+</th>
-                    <th>A-</th>
-                    <th>A+</th>
-                    <th>B-</th>
-                    <th>B+</th>
-                    <th>AB-</th>
-                    <th>AB+</th>
+                    <td>Penerima</td>
+                    <td colspan="8" >Pendonor</td>
+                </tr>
+                <tr>
+                    <td>Jenis Darah</td>
+                    <td>O-</td>
+                    <td>O+</td>
+                    <td>A-</td>
+                    <td>A+</td>
+                    <td>B-</td>
+                    <td>B+</td>
+                    <td>AB-</td>
+                    <td>AB+</td>
                 </tr>
                 <tr>
                     <td>O-</td>
@@ -258,6 +261,15 @@
                 </tr>
             </table>
         </div>
+        <footer>
+            <div class="waves">
+                <div class="wave" id="wave1"></div>
+                <div class="wave" id="wave2"></div>
+                <div class="wave" id="wave3"></div>
+                <div class="wave" id="wave4"></div>
+            </div>
+            <p>©2021 Kelompok 8 | All Rights Reserved</p>
+        </footer>
     </div>
 
 

@@ -52,32 +52,38 @@ if (!isset($_SESSION["username_daftar"])) {
 					<form action="" method="post">
 						<h3>Halo <?php echo $_SESSION['username_daftar']; ?>, <br> Mari bantu kami <br> melengkapi data dirimu : </h3>
 						<input type="text" name="nama" placeholder="Nama" required>
-						<input type="text" name="nik" placeholder="NIK" required>
+						<input type="number" name="nik" placeholder="NIK" required>
 						<input type="tel" name="no_telepon" placeholder="Nomor Telepon" required>
 						<input type="text" name="email" placeholder="Email" required>
 						<input type="text" name="tempat_lahir" placeholder="Tempat Lahir" required>
 						<input type="text" name="alamat_lengkap" placeholder="Alamat Lengkap" required>
 						<p>Jenis Kelamin :</p>
-						<input type="radio" name="jenis_kelamin" id="laki" value="Laki-Laki" checked>
-						<label for="laki" class="label">Laki-laki</label>
-
-						<input type="radio" name="jenis_kelamin" id="perempuan" value="Perempuan">
-						<label for="perempuan" class="label">Perempuan</label>
+						<label>
+                            <input type="radio" name="jenis_kelamin" id="laki" value="Laki-Laki" >
+                            <span class="check"></span>
+                            Laki-Laki
+                        </label>
+                        <br>
+                        <label>
+                            <input type="radio" name="jenis_kelamin" id="perempuan" value="Perempuan">
+                            <span class="check"></span>
+                            Perempuan
+                        </label>
 
 						<input type="submit" class="submit" name="daftar2" value="Daftar">
 					</form>
 					<?php
 					if (isset($_POST["daftar2"])) {
 						include("config.php");
-						$username = $_SESSION['username_daftar'];
-						$password = password_hash($_SESSION['password_daftar'], PASSWORD_DEFAULT);
-						$nama = mysqli_real_escape_string($conn, $_POST["nama"]);
-						$nik = $_POST["nik"];
-						$no_telepon = $_POST["no_telepon"];
-						$email = mysqli_real_escape_string($conn, $_POST["email"]);
-						$tempat_lahir = mysqli_real_escape_string($conn, $_POST["tempat_lahir"]);
-						$alamat_lengkap = mysqli_real_escape_string($conn, $_POST["alamat_lengkap"]);
-						$jenis_kelamin = mysqli_real_escape_string($conn, $_POST["jenis_kelamin"]);
+						$username = htmlspecialchars($_SESSION['username_daftar']);
+						$password = htmlspecialchars(password_hash($_SESSION['password_daftar'], PASSWORD_DEFAULT));
+						$nama = htmlspecialchars($_POST["nama"]);
+						$nik = htmlspecialchars($_POST["nik"]);
+						$no_telepon = htmlspecialchars($_POST["no_telepon"]);
+						$email = htmlspecialchars($_POST["email"]);
+						$tempat_lahir = htmlspecialchars($_POST["tempat_lahir"]);
+						$alamat_lengkap = htmlspecialchars($_POST["alamat_lengkap"]);
+						$jenis_kelamin = htmlspecialchars($_POST["jenis_kelamin"]);
 
 						$sqlnik = "SELECT nik FROM user WHERE nik = '$nik'";
 						$sqlemail = "SELECT email FROM user WHERE email = '$email'";

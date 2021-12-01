@@ -50,8 +50,8 @@
                     <?php
                     include("config.php");
                     if (isset($_POST['login'])) {
-                        $username = mysqli_real_escape_string($conn, $_POST['username']);
-                        $password = $_POST['password'];
+                        $username = htmlspecialchars($_POST['username']);
+                        $password = htmlspecialchars($_POST['password']);
                         $res = mysqli_query($conn, "SELECT * FROM akun WHERE username = '" . strtolower($username) . "' AND role = 'Admin'");
                         $count = mysqli_num_rows($res);
                         if ($count == 1) {
