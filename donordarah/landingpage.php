@@ -61,13 +61,12 @@
                         <br>
                         <p><i>Jadi mohon mengisi dengan penuh tanggung jawab ☺</i></p>
                     </li>
-					<?php
-						if(is_null($form['form_id_form'])){
-							echo "<li><button class='btn-scr' onclick='window.location = \"screening.php\"')'><img src='' alt=''>Lakukan Screening</button></li>";
-						}
-					?>
-                    
                 </ul>
+                <?php
+					if(is_null($form['form_id_form'])){
+						echo "<a href = 'screening.php' class='btn-scr' style='--clr:#c3073f;'><span>Lakukan Screening</span></a>";
+					}
+				?>
             </div>
             <div class="logo-wrapper">
                 <img src="img/wrapperbackground.png" alt="">

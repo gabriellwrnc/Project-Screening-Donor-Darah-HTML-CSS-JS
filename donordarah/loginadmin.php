@@ -26,7 +26,7 @@
     </div>
 
     <div class="wrapper">
-        
+
         <div class="container">
             <div class="whitebg">
 
@@ -39,44 +39,42 @@
                 </div>
 
             </div>
-        <div class="formWx">
-            <div class="form signinForm">
-                <form action="" method="post">
-                    <h3>Welcome, <i>Admin</i> <br> Type your <i>Admin</i> Account : </h3>
-                    <input type="text" name="username" placeholder="Username" required>
-                    <input type="password" name="password" placeholder="Password" required>
-                    <input type="submit" class="submit" name="login" value="Login" required>
-                </form>
-				<?php
-					include ("config.php");
-					if(isset($_POST['login'])){
-						$username = mysqli_real_escape_string($conn, $_POST['username']);
-						$password = $_POST['password'];
-						$res = mysqli_query($conn, "SELECT * FROM akun WHERE username = '".strtolower($username)."' AND role = 'Admin'");
-						$count = mysqli_num_rows($res);
-						if($count == 1){
-							$verif = mysqli_fetch_assoc($res);
-							if(password_verify($password, $verif['password'])){
-								session_start();
-								$_SESSION["username_admin"] = $username;
-								echo "<script>
+            <div class="formWx">
+                <div class="form signinForm">
+                    <form action="" method="post">
+                        <h3>Welcome, <i>Admin</i> <br> Type your <i>Admin</i> Account : </h3>
+                        <input type="text" name="username" placeholder="Username" required>
+                        <input type="password" name="password" placeholder="Password" required>
+                        <input type="submit" class="submit" name="login" value="Login" required>
+                    </form>
+                    <?php
+                    include("config.php");
+                    if (isset($_POST['login'])) {
+                        $username = mysqli_real_escape_string($conn, $_POST['username']);
+                        $password = $_POST['password'];
+                        $res = mysqli_query($conn, "SELECT * FROM akun WHERE username = '" . strtolower($username) . "' AND role = 'Admin'");
+                        $count = mysqli_num_rows($res);
+                        if ($count == 1) {
+                            $verif = mysqli_fetch_assoc($res);
+                            if (password_verify($password, $verif['password'])) {
+                                session_start();
+                                $_SESSION["username_admin"] = $username;
+                                echo "<script>
 								alert('Selamat Datang Kembali');
 								window.location = 'landingadmin.php';
 								</script>";
-								exit;
-							}
-							else{
-								echo "<script>
+                                exit;
+                            } else {
+                                echo "<script>
 								alert('Maaf Password anda salah, silahkan coba kembali')</script>";
-							}
-						}
-						else{
-							echo "<script>alert('Maaf Username atau Password salah, silahkan coba kembali')</script>";
-						}
-					}
-				?>
+                            }
+                        } else {
+                            echo "<script>alert('Maaf Username atau Password salah, silahkan coba kembali')</script>";
+                        }
+                    }
+                    ?>
+                </div>
             </div>
-        </div>
         </div>
     </div>
 </body>

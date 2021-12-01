@@ -1,24 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Genos:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Genos:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Genos', sans-serif;
-    overflow: hidden;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Genos", sans-serif;
+  overflow: hidden;
 }
 
 body {
-    line-height: 1;
+  line-height: 1;
 }
 
-.header .header-logo h1{
-    font-size: 50px;
-    font-weight: bold;
+.header .header-logo h1 {
+  font-size: 50px;
+  font-weight: bold;
 }
 
-
-ol, ul {
+ol,
+ul {
   list-style: none;
 }
 
@@ -47,94 +47,94 @@ li {
 }
 
 .wrapper {
-    position: relative;
-    height: 900px;
+  position: relative;
+  height: 900px;
 }
 
 .header-logo img {
-    margin-top: 25px;
-    margin-left: 40px;
-    position: relative;
-    width: 50px;
+  margin-top: 25px;
+  margin-left: 40px;
+  position: relative;
+  width: 50px;
 }
 
 .logo-tangan {
-    position: absolute;
-    left: 950px;
-    top: 11px;
-    width: 700px;
+  position: absolute;
+  left: 950px;
+  top: 11px;
+  width: 700px;
 }
 
 .wrapper p {
-    position: relative;
-    bottom: 120px;
-    left: 10px;
-    line-height: 35px;
-    font-size: 20px;
-    padding-left: 125px;
-    padding-top: 150px;
-    color: #edf2f4;
+  position: relative;
+  bottom: 120px;
+  left: 10px;
+  line-height: 35px;
+  font-size: 20px;
+  padding-left: 125px;
+  padding-top: 150px;
+  color: #edf2f4;
 }
 
-.wrapper-center{
-    position: relative;
-    left: 180px;
-    bottom: 5px;
+.wrapper-center {
+  position: relative;
+  left: 180px;
+  bottom: 5px;
 }
 
-.wrapper-center .bigger{
-    font-size: 30px;
+.wrapper-center .bigger {
+  font-size: 30px;
 }
 
-.wrapper .wrapper-center .atau{
-    position: absolute;
-    font-size: 20px;
-    width: 75px;
-    top: 150px;
-    left: 440px;
-    text-align: center;
-    background: #edf2f4;
-    color: #2b2d42;
-    padding: 10px 15px;
-    border: 3px solid #edf2f4;
-    border-radius: 10px;
+.wrapper .wrapper-center .atau {
+  position: absolute;
+  font-size: 20px;
+  width: 75px;
+  top: 150px;
+  left: 440px;
+  text-align: center;
+  background: #edf2f4;
+  color: #2b2d42;
+  padding: 10px 15px;
+  border: 3px solid #edf2f4;
+  border-radius: 10px;
 }
 
-a{
-    text-decoration: none;
+a {
+  text-decoration: none;
 }
 
-.wrapper .button{
-    position: relative;
-    bottom: 80px;
+.wrapper .button {
+  position: relative;
+  bottom: 80px;
 }
 
 button {
-    position: relative;
-    width: 150px;
-    border: 0;
-    color: #edf2f4;
-    background: #8d99ae;
-    margin-top: 30px;
-    margin-left: 130px;
-    text-align: center;
-    padding: 20px 10px;
-    font-size: 25px;
-    outline: none;
-    border: 3px solid #8d99ae;
-    border-radius: 20px;
-    cursor: pointer;
+  position: relative;
+  width: 150px;
+  border: 0;
+  color: #edf2f4;
+  background: #8d99ae;
+  margin-top: 30px;
+  margin-left: 130px;
+  text-align: center;
+  padding: 20px 10px;
+  font-size: 25px;
+  outline: none;
+  border: 3px solid #8d99ae;
+  border-radius: 20px;
+  cursor: pointer;
 }
 
-.wrapper .wrapper-center .pendonor{
-    position: relative;
-    left: 130px;
+.wrapper .wrapper-center .pendonor {
+  position: relative;
+  left: 130px;
 }
 
-button:hover{
-    background: #edf2f4;
-    color: #2b2d42;
-    font-weight: 600;
-    border: 3px solid #edf2f4;
-    box-shadow: 0 20px 60px #edf2f499;
+button:hover {
+  background: #edf2f4;
+  color: #2b2d42;
+  font-weight: 600;
+  border: 3px solid #edf2f4;
+  box-shadow: 0 20px 60px #edf2f499;
 }

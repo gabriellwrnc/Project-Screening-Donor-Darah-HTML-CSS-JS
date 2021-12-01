@@ -1,159 +1,157 @@
-@import url('https://fonts.googleapis.com/css2?family=Genos:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Genos:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Genos', sans-serif;
-    overflow: auto;
-    overflow-x: hidden;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Genos", sans-serif;
+  overflow: auto;
+  overflow-x: hidden;
 }
 
 html {
-    min-height: 100%;
-    position: relative;
+  min-height: 100%;
+  position: relative;
 }
 
 body {
-    background: #D80032;
-    height: 100%;
+  background: #d80032;
+  height: 100%;
 }
 
 a {
-    text-decoration: none;
-    color: white;
+  text-decoration: none;
+  color: white;
 }
 
 ::-webkit-scrollbar {
-    background: transparent;
-    height: 30px;
-    width: 12px;
+  background: transparent;
+  height: 30px;
+  width: 12px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(transparent, #8D99AE);
-    border-radius: 6px;
+  background: linear-gradient(transparent, #8d99ae);
+  border-radius: 6px;
 }
 
-
 .wrapper {
-    width: 100%;
-    background-color: #D80032;
+  width: 100%;
+  background-color: #d80032;
 }
 
 .header {
-    padding-top: 15px;
-    padding-bottom: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 .header-logo {
-    margin-left: 30px;
-    display: inline;
+  margin-left: 30px;
+  display: inline;
 }
 
 ul {
-    display: inline;
+  display: inline;
 }
 
 .header-logo img {
-    width: 50px;
-    margin-right: 10px;
+  width: 50px;
+  margin-right: 10px;
 }
 
 li {
-    display: inline-block;
+  display: inline-block;
 }
 
 li h1 {
-    color: white;
-    font-size: 50px;
+  color: white;
+  font-size: 50px;
 }
 
 .header-list {
-    position: relative;
-    top: 5px;
-    right: 100px;
-    display: inline;
-    float: right;
-    font-size: 25px;
+  position: relative;
+  top: 5px;
+  right: 100px;
+  display: inline;
+  float: right;
+  font-size: 25px;
 }
 
 .header-list li {
-    margin-left: 5px;
-    color: white;
-    border-radius: 10px;
-    padding: 10px;
-    cursor: pointer;
+  margin-left: 5px;
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
 }
 
 .header-list li:hover {
-    background-color: white;
-    color: #ff3030;
-    transition: 1s;
+  background-color: white;
+  color: #ff3030;
+  transition: 1s;
 }
 
 .wrapper .content {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: -1;
-    height: 100%;
-    background: #EDF2F4;
-    display: block;
-    padding-bottom: 155px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  height: 100%;
+  background: #edf2f4;
+  display: block;
+  padding-bottom: 155px;
 }
 
 .wrapper .content .box {
-    position: relative;
-    background: #8D99AE;
-    margin: 0 auto;
-    padding: 20px;
-    top: 40%;
-    border: 1px solid #000000;
-    z-index: 1000;
-    border-radius: 20px;
-    box-shadow: 0px 10px 20px #000000;
-    width: 650px;
-    height: fit-content;
-
+  position: relative;
+  background: #8d99ae;
+  margin: 0 auto;
+  padding: 20px;
+  top: 40%;
+  border: 1px solid #000000;
+  z-index: 1000;
+  border-radius: 20px;
+  box-shadow: 0px 10px 20px #000000;
+  width: 650px;
+  height: fit-content;
 }
 
 .wrapper .content .box .form {
-    padding: 10px;
-    font-size: 23px;
+  padding: 10px;
+  font-size: 23px;
 }
 
 .wrapper .content .box .form .box-title {
-    text-align: center;
+  text-align: center;
 }
 
 .wrapper .content .box .hasil {
-    padding: 10px;
-    margin-top: 10px;
-    font-size: 25px;
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 25px;
 }
 
-.box .form button{
-    border: 0;
-    position: relative;
-    background: none;
-    display: block;
-    margin: 20px auto;
-    text-align: center;
-    border: 3px solid #000000;
-    padding: 14px 40px;
-    outline: none;
-    border-radius: 24px;
-    transition: 0.4s;
-    cursor: pointer;
-    top: 10px;
-    font-size: 24px;
+.box .form button {
+  border: 0;
+  position: relative;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 3px solid #000000;
+  padding: 14px 40px;
+  outline: none;
+  border-radius: 24px;
+  transition: 0.4s;
+  cursor: pointer;
+  top: 10px;
+  font-size: 24px;
 }
 
-.box .form button:hover{
-    border: 3px solid #2ecc71;
-    background: #2ecc71;
-    color: #EDF2F4;
+.box .form button:hover {
+  border: 3px solid #2ecc71;
+  background: #2ecc71;
+  color: #edf2f4;
 }

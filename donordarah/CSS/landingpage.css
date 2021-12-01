@@ -20,7 +20,6 @@ a{
 
 ::-webkit-scrollbar{
     background: transparent;
-    
     height: 30px;
     width:12px;
 }
@@ -102,7 +101,7 @@ li h1 {
 
 .container {
     position: absolute;
-    bottom: 230px;
+    bottom: 240px;
     left: 100px;
     padding-bottom: 110px;
     display: inline-block;
@@ -121,37 +120,78 @@ li h1 {
     font-size: 20px;
 }
 
-.main .container .desc{
+a.btn-scr {
     position: relative;
-    bottom: 150px;
-}
-
-.btn-scr {
-    display: block;
-    background-color: #D80032;
-    color: white;
-    margin-top: 50px;
+    padding: 15px 40px;
+    width: fit-content;
+    left: 40px;
+    top: 70px;
+    background: #8D99AE;
     font-size: 20px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 15px;
-    padding-right: 15px;
-    border-radius: 10px;
-}
-
-.btn-scr:hover {
-    background-color: #EDF2F4;
-    color: #D80032;
-    margin-left: 15px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-right: 25px;
-    padding-left: 25px;
+    cursor: pointer;
     transition: 1s;
-
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
 }
 
+a.btn-scr:hover {
+    background: var(--clr);
+    box-shadow: 0 0 5px var(--clr),
+    0 0 15px var(--clr),
+    0 0 40px var(--clr),
+    0 0 60px var(--clr);
+}
 
+a.btn-scr::before{
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 800%;
+    background: var(--clr);
+    transition: 1s;
+    animation: animate 2s linear infinite;
+}
+
+a.btn-scr:hover:before{
+    width: 120%;
+}
+
+@keyframes animate {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+a.btn-scr::after{
+    content: '';
+    position: absolute;
+    inset: 4px;
+    background:#EDF2F4;
+    transition: 0.5s;
+}
+
+a.btn-scr:hover:after{
+    background: var(--clr);
+}
+
+a.btn-scr span{
+    position: relative;
+    z-index: 1;
+    color: #000;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    transition: 0.75s;
+}
+
+a.btn-scr:hover span{
+    color: #fff;
+}
 .logo-wrapper {
     position: relative;
     top: 50px;
@@ -312,18 +352,3 @@ li h1 {
     color: white;
 }
 
-
-
-
-
-@keyframes animate
-{
-    0%,100%
-    {
-        filter: hue-rotate(0deg);
-    }
-    50%
-    {
-        filter: hue-rotate(360deg);
-    }
-}

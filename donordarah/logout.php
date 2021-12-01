@@ -6,4 +6,3 @@
 			alert('Berhasil Logout');
 			window.location = 'index.php';
 			</script>";
-?>

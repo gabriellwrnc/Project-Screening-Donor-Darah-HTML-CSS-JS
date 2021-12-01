@@ -1,23 +1,27 @@
 <?php
-    if (isset($_POST['daftar2'])){
-        echo "<script>alert('Anda telah terdaftar');</script>";
-    }
+if (isset($_POST['daftar2'])) {
+    echo "<script>alert('Anda telah terdaftar');</script>";
+}
 
-    if (isset($_POST['login'])){
-        echo "<script>alert('Selamat Datang Kembali');</script>";
-    }
-    
+if (isset($_POST['login'])) {
+    echo "<script>alert('Selamat Datang Kembali');</script>";
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ayo Donor</title>
 </head>
+
 <body>
-    <header> <h1>Landing Page User</h1> </header>
+    <header>
+        <h1>Landing Page User</h1>
+    </header>
 
     <div class="nav">
         <ul>
@@ -77,22 +81,22 @@
         <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis magnam nemo odio adipisci, nulla iure veritatis quis, veniam totam similique incidunt nam doloribus voluptatum distinctio dolore non iusto libero quaerat. Velit sint unde expedita eveniet ratione esse eum quisquam possimus! Assumenda sequi dolorum maxime alias magnam asperiores, fugit nisi perspiciatis, necessitatibus sunt accusamus soluta id architecto animi! Nesciunt quo eum vero voluptatibus labore, nostrum itaque harum exercitationem voluptas quasi soluta deserunt nihil sed hic. Ab dolorem vero illum, asperiores sed reiciendis velit, explicabo maxime porro quibusdam numquam autem nobis officiis id ipsa neque tempora quis totam. Ipsam fuga eligendi laborum! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam, eaque repudiandae. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint doloremque corrupti dolorem, architecto odio fugit esse impedit ad dolor omnis. Nulla fugiat architecto cupiditate corrupti accusantium aliquam, mollitia saepe odio placeat vero magni in iste deleniti, consectetur doloribus ipsum pariatur reiciendis! Neque quia voluptas, exercitationem eius distinctio incidunt quasi iure nihil sint blanditiis labore tempore vitae, nobis impedit velit. Voluptate, excepturi facilis! Doloremque facere corrupti natus inventore beatae, voluptatem autem cum deserunt odio consequuntur dolorem magni fugiat ea necessitatibus repudiandae cupiditate nihil commodi officiis placeat accusamus explicabo quasi.
         </p>
-            <h4 id="A">Golongan Darah A</h4>
-            <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dignissimos necessitatibus quis cum, architecto recusandae magni quo, rerum quos facilis provident eaque adipisci nisi! Nemo distinctio quidem quis officia eligendi facilis expedita consectetur eos, ducimus doloribus aliquam quae cupiditate quos a cum ipsa unde odit pariatur ipsum adipisci repellendus omnis accusantium!
-            </p>
-            <h4 id="B">Golongan Darah B</h4>
-            <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dignissimos necessitatibus quis cum, architecto recusandae magni quo, rerum quos facilis provident eaque adipisci nisi! Nemo distinctio quidem quis officia eligendi facilis expedita consectetur eos, ducimus doloribus aliquam quae cupiditate quos a cum ipsa unde odit pariatur ipsum adipisci repellendus omnis accusantium!
-            </p>
-            <h4 id="O">Golongan Darah O</h4>
-            <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dignissimos necessitatibus quis cum, architecto recusandae magni quo, rerum quos facilis provident eaque adipisci nisi! Nemo distinctio quidem quis officia eligendi facilis expedita consectetur eos, ducimus doloribus aliquam quae cupiditate quos a cum ipsa unde odit pariatur ipsum adipisci repellendus omnis accusantium!
-            </p>
-            <h4 id="AB">Golongan Darah AB</h4>
-            <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dignissimos necessitatibus quis cum, architecto recusandae magni quo, rerum quos facilis provident eaque adipisci nisi! Nemo distinctio quidem quis officia eligendi facilis expedita consectetur eos, ducimus doloribus aliquam quae cupiditate quos a cum ipsa unde odit pariatur ipsum adipisci repellendus omnis accusantium!
-            </p>
+        <h4 id="A">Golongan Darah A</h4>
+        <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dignissimos necessitatibus quis cum, architecto recusandae magni quo, rerum quos facilis provident eaque adipisci nisi! Nemo distinctio quidem quis officia eligendi facilis expedita consectetur eos, ducimus doloribus aliquam quae cupiditate quos a cum ipsa unde odit pariatur ipsum adipisci repellendus omnis accusantium!
+        </p>
+        <h4 id="B">Golongan Darah B</h4>
+        <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dignissimos necessitatibus quis cum, architecto recusandae magni quo, rerum quos facilis provident eaque adipisci nisi! Nemo distinctio quidem quis officia eligendi facilis expedita consectetur eos, ducimus doloribus aliquam quae cupiditate quos a cum ipsa unde odit pariatur ipsum adipisci repellendus omnis accusantium!
+        </p>
+        <h4 id="O">Golongan Darah O</h4>
+        <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dignissimos necessitatibus quis cum, architecto recusandae magni quo, rerum quos facilis provident eaque adipisci nisi! Nemo distinctio quidem quis officia eligendi facilis expedita consectetur eos, ducimus doloribus aliquam quae cupiditate quos a cum ipsa unde odit pariatur ipsum adipisci repellendus omnis accusantium!
+        </p>
+        <h4 id="AB">Golongan Darah AB</h4>
+        <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dignissimos necessitatibus quis cum, architecto recusandae magni quo, rerum quos facilis provident eaque adipisci nisi! Nemo distinctio quidem quis officia eligendi facilis expedita consectetur eos, ducimus doloribus aliquam quae cupiditate quos a cum ipsa unde odit pariatur ipsum adipisci repellendus omnis accusantium!
+        </p>
 
 
 
@@ -103,7 +107,8 @@
     </div>
 
     <footer>
-		&copy; Kelompok 8 D19 | Design by Kelompok 8 D19 | Images from <a href="http://google.com/">Google</a>
-	</footer>
+        &copy; Kelompok 8 D19 | Design by Kelompok 8 D19 | Images from <a href="http://google.com/">Google</a>
+    </footer>
 </body>
+
 </html>
