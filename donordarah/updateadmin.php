@@ -1,3 +1,31 @@
+<?php
+	session_start();
+	if(!isset($_SESSION['username_admin'])){
+		echo "<script>
+			alert('Lakukan login terlebih dahulu di halaman awal untuk bisa mengakses website ini');
+			window.location = 'index.php';
+			</script>";
+		exit;
+	}
+?>
+<?php
+	include("config.php");
+	$nik = $_GET["nik"];
+	$sqlidform = "SELECT form_id_form FROM user WHERE nik = $nik";
+	$residform = mysqli_query($conn, $sqlidform);
+	$idform = mysqli_fetch_assoc($residform);
+	if(isset($idform['form_id_form'])){
+		$sqlform = "SELECT * FROM form INNER JOIN user ON user.nik = form.user_nik INNER JOIN hasil ON hasil.id_hasil = form.hasil_id_hasil WHERE user_nik = '$nik'";
+		$resform = mysqli_query($conn, $sqlform);
+		$form = mysqli_fetch_assoc($resform);
+	}
+	else{
+		echo "<script>
+			alert('Data yang dipilih belum melakukan screening, oleh sebab itu data form user tidak ada. Halaman dialihkan ke menu admin');
+			window.location = 'landingadmin.php';
+			</script>";
+	}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,23 +59,23 @@
 						<table>
 						<tr>
 							<td>Umur </td>
-							<td> : <input type="number" name="umur" required> Tahun</td>
+							<td> : <input type="number" name="umur" value="<?php echo $form['umur']; ?>"required> Tahun</td>
 						</tr>
 						<tr>
 							<td>Berat badan </td>
-							<td> : <input type="number" name="berat_badan" required> Kg</td>
+							<td> : <input type="number" name="berat_badan" value="<?php echo $form['berat_badan']; ?>" required> Kg</td>
 						</tr>
 						</table>
 
 						<span>Apakah pernah mengidap HIV/AIDS? : </span><br>
 						<label >
-							<input type="radio" name="hiv" id="pernah" value="Pernah">
+							<input type="radio" name="hiv" id="pernah" value="Pernah" <?php if($form['hiv'] == "Pernah"){ echo "checked"; } ?>>
 							<span class="check"></span>
 							Pernah
 						</label>
 						<br>
 						<label >
-							<input type="radio" name="hiv" id="tidak" value="Tidak Pernah">
+							<input type="radio" name="hiv" id="tidak" value="Tidak Pernah" <?php if($form['hiv'] == "Tidak Pernah"){ echo "checked"; } ?>>
 							<span class="cross"></span>
 							Tidak Pernah
 						</label>
@@ -56,13 +84,13 @@
 
 						<span>Apakah anda memiliki pasangan yang mengidap HIV/AIDS? : </span><br>
 						<label >
-							<input type="radio" name="pasangan_hiv" id="pernah" value="Pernah">
+							<input type="radio" name="pasangan_hiv" id="pernah" value="Pernah" <?php if($form['pasangan_hiv'] == "Pernah"){ echo "checked"; } ?>>
 							<span class="check"></span>
 							Pernah
 						</label>
 						<br>
 						<label >
-							<input type="radio" name="pasangan_hiv" id="tidak" value="Tidak Pernah">
+							<input type="radio" name="pasangan_hiv" id="tidak" value="Tidak Pernah" <?php if($form['pasangan_hiv'] == "Tidak Pernah"){ echo "checked"; } ?>>
 							<span class="cross"></span>
 							Tidak Pernah
 						</label>
@@ -71,28 +99,27 @@
 
 						<span>Apakah anda atau pasangan pernah melakukan kontak dengan seseorang yang memiliki hepatitis B atau C? : </span><br>
 						<label >
-							<input type="radio" name="kontak_hepatitis" id="pernah" value="Pernah">
+							<input type="radio" name="kontak_hepatitis" id="pernah" value="Pernah" <?php if($form['kontak_hepatitis'] == "Pernah"){ echo "checked"; } ?>>
 							<span class="check"></span>
 							Pernah
 						</label>
 						<br>
 						<label >
-							<input type="radio" name="kontak_hepatitis" id="tidak" value="Tidak Pernah">
+							<input type="radio" name="kontak_hepatitis" id="tidak" value="Tidak Pernah" <?php if($form['kontak_hepatitis'] == "Tidak Pernah"){ echo "checked"; } ?>>
 							<span class="cross"></span>
 							Tidak Pernah
 						</label>
-
 						<br>
 
-						<span>Apakah pernah menyuntikkan atau disuntikkan obat-obatan tanpa sepengetahuan dokter : </span><br>
+						<span>Apakah pernah menyuntikkan atau disuntikkan obat-obatan tanpa sepengetahuan dokter? : </span><br>
 						<label >
-							<input type="radio" name="suntik" id="pernah" value="Pernah">
+							<input type="radio" name="suntik" id="pernah" value="Pernah" <?php if($form['suntik'] == "Pernah"){ echo "checked"; } ?>>
 							<span class="check"></span>
 							Pernah
 						</label>
 						<br>
 						<label >
-							<input type="radio" name="suntik" id="tidak" value="Tidak Pernah">
+							<input type="radio" name="suntik" id="tidak" value="Tidak Pernah" <?php if($form['suntik'] == "Tidak Pernah"){ echo "checked"; } ?>>
 							<span class="cross"></span>
 							Tidak Pernah
 						</label>
@@ -101,52 +128,50 @@
 
 						<?php
 						include("config.php");
-						$username = $_SESSION["username"];
-						$sqlidkelamin = "SELECT akun.id_akun, user.nik, user.jenis_kelamin FROM akun INNER JOIN user ON akun.id_akun = user.akun_id_akun WHERE username = '$username' AND role = 'User'";
-						$residkelamin = mysqli_query($conn, $sqlidkelamin);
-						$idkelamin = mysqli_fetch_assoc($residkelamin);
-						if($idkelamin['jenis_kelamin'] == "Laki-Laki"){
-							echo "<span>Apakah pernah melakukan oral atau anal seks tanpa menggunakan pengaman (kondom)? : </span><br>
-								<label >
-									<input type='radio' name='sex_period' id='pernah' value='Pernah'>
-									<span class='check'></span>
-									Pernah
-								</label>
-								<br>
-								<label >
-									<input type='radio' name='sex_period' id='tidak'  value='Tidak Pernah'>
-									<span class='cross'></span>
-									Tidak Pernah
-								</label>
-								
-								<br>";
-						}
-						else if ($idkelamin['jenis_kelamin'] == "Perempuan"){
-							echo "<span>Apakah sedang menstruasi? : </span><br>
+						if($form['jenis_kelamin'] == "Laki-Laki"){
+							?>
+							<span>Apakah pernah melakukan oral atau anal seks tanpa menggunakan pengaman (kondom)? : </span><br>
+							<label>
+								<input type='radio' name='sex_period' id='pernah' value='Pernah' <?php if($form['sex_period'] == "Pernah"){ echo "checked"; } ?>>
+								<span class='check'></span>
+								Pernah
+							</label>
+							<br>
 							<label >
-									<input type='radio' name='sex_period' id='pernah' value='Iya'>
-									<span class='check'></span>
-									Iya
-								</label>
-								<br>
-								<label >
-									<input type='radio' name='sex_period' id='tidak'  value='Tidak'>
-									<span class='cross'></span>
-									Tidak
-								</label>
-								
-								<br>";
+								<input type='radio' name='sex_period' id='tidak'  value='Tidak Pernah' <?php if($form['sex_period'] == "Tidak Pernah"){ echo "checked"; } ?>>
+								<span class='cross'></span>
+								Tidak Pernah
+							</label>
+							<br>
+							<?php
+						}
+						else if($form['jenis_kelamin'] == "Perempuan"){
+							?>
+							<span>Apakah anda sedang menstruasi? : </span><br>
+							<label >
+								<input type='radio' name='sex_period' id='pernah' value='Iya' <?php if($form['sex_period'] == "Iya"){ echo "checked"; } ?>>
+								<span class='check'></span>
+								Iya
+							</label>
+							<br>
+							<label >
+								<input type='radio' name='sex_period' id='tidak'  value='Tidak' <?php if($form['sex_period'] == "Tidak"){ echo "checked"; } ?>>
+								<span class='cross'></span>
+								Tidak
+							</label>
+							<br>
+							<?php
 						}
 						?>
 						<span>Kapan terakhir kali anda mendonorkan darah? : </span><br>
 						<label >
-							<input type="radio" name="riwayat_donor" id="pernah" value=">3 Bulan">
+							<input type="radio" name="riwayat_donor" id="pernah" value=">3 Bulan" <?php if($form['riwayat_donor'] == ">3 Bulan"){ echo "checked"; } ?>>
 							<span class="check"></span>
 							Lebih dari 3 bulan yang lalu
 						</label>
 						<br>
 						<label >
-							<input type="radio" name="riwayat_donor" id="tidak" value="<=3 Bulan">
+							<input type="radio" name="riwayat_donor" id="tidak" value="<=3 Bulan" <?php if($form['riwayat_donor'] == "<=3 Bulan"){ echo "checked"; } ?>>
 							<span class="check"></span>
 							Kurang dari 3 bulan yang lalu
 						</label> 
@@ -157,7 +182,7 @@
 					<?php
 						if(isset($_POST['screening'])){
 							include("config.php");
-							$akun_id_akun = $idkelamin['id_akun'];
+							$akun_id_akun = $form['akun_id_akun'];
 							$umur = $_POST['umur'];
 							$berat_badan = $_POST['berat_badan'];
 							$hiv = $_POST['hiv'];
@@ -167,24 +192,19 @@
 							$sex_period =  $_POST['sex_period'];
 							$riwayat_donor = $_POST['riwayat_donor'];
 							
-							$sqlscreening = "INSERT INTO form (id_form, umur, berat_badan, hiv, pasangan_hiv, kontak_hepatitis, suntik, sex_period, riwayat_donor) VALUES ('$akun_id_akun', '$umur', '$berat_badan', '$hiv', '$pasangan_hiv', '$kontak_hepatitis', '$suntik', '$sex_period', '$riwayat_donor')";
-							$sqlnik = "UPDATE form SET user_nik = (SELECT nik FROM  user WHERE akun_id_akun = '$akun_id_akun') WHERE id_form = '$akun_id_akun'";
-							$sqlidform = "UPDATE user SET form_id_form = '$akun_id_akun' WHERE akun_id_akun = '$akun_id_akun'";
+							$sqlscreening = "UPDATE form SET umur = '$umur', berat_badan = '$berat_badan', hiv = '$hiv', pasangan_hiv = '$pasangan_hiv', kontak_hepatitis = '$kontak_hepatitis', suntik = '$suntik', sex_period = '$sex_period', riwayat_donor = '$riwayat_donor' WHERE id_form = '$akun_id_akun'";
 							
 							if($umur < 17 && $umur > 50 || $berat_badan < 47 || $hiv == "Pernah" || $pasangan_hiv == "Pernah" || $kontak_hepatitis == "Pernah" || $suntik == "Pernah" || $hiv == "Pernah" || $sex_period == "Pernah" || $sex_period == "Iya" || $riwayat_donor == "<=3 Bulan"){
-								$sqlhasil = "INSERT INTO hasil (id_hasil, hasil_form, form_id_form) VALUES ($akun_id_akun, 'Tidak dapat mendonorkan darah', $akun_id_akun)";
+								$sqlhasil = "UPDATE hasil SET hasil_form = 'Tidak dapat mendonorkan darah' WHERE id_hasil = '$akun_id_akun'";
 							}
 							else{
-								$sqlhasil = "INSERT INTO hasil (id_hasil, hasil_form, form_id_form) VALUES ($akun_id_akun, 'Bisa mendonorkan darah', $akun_id_akun)";
+								$sqlhasil = "UPDATE hasil SET hasil_form = 'Bisa mendonorkan darah' WHERE id_hasil = '$akun_id_akun'";
 							}
-							$sqlidhasil = "UPDATE form SET hasil_id_hasil = '$akun_id_akun' WHERE id_form = $akun_id_akun";
 							
-							if(mysqli_query($conn, $sqlscreening) && mysqli_query($conn, $sqlnik) && mysqli_query($conn, $sqlhasil)){
-								mysqli_query($conn, $sqlidform);
-								mysqli_query($conn, $sqlidhasil);
+							if(mysqli_query($conn, $sqlscreening) && mysqli_query($conn, $sqlhasil)){
 								echo "<script>
-									alert('Screening telah berhasil!, anda dialihan ke landing page');
-									window.location = 'landingpage.php';
+									alert('Update telah berhasil!, anda dialihan ke halaman sebelumnya');
+									window.location = 'formuser.php?nik=$nik';
 									</script>";
 							}
 							else{

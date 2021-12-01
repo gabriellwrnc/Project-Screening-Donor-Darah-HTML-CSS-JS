@@ -146,6 +146,9 @@
 										background-color: #ff3030;
 										border-radius: 15px;
 									}
+									.hasil h3{
+										text-align: center;
+									}
 								</style>";
 							$alasan = true;
 						}
@@ -156,6 +159,7 @@
 					<?php
 						if($alasan == true){
 							$pernah = true;
+							echo "<br/>";
 							echo "Alasan :<br/>";
 							if($umur < 17 || $umur > 50){
 								echo "- Karena batas umur untuk mendonor darah adalah >= 17 tahun dan <= 50 tahun<br/>";

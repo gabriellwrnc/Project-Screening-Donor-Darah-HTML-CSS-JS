@@ -53,20 +53,36 @@
                                 <th>Tempat Lahir</th>
                                 <th>Aksi</th>
                             </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Gabriel D Lawrence</td>
-                                <td>1915026020</td>
-                                <td>Laki-Laki</td>
-                                <td>082155663333</td>
-                                <td>gab@gmail.com</td>
-                                <td>Jl.Cikunir Raya</td>
-                                <td>Bekasi</td>
-                                <td>
-                                    <a href="delete.php" class = "delete" onclick="return confirm('you want to delete this data?')"><span class="delete"><ion-icon name="trash-outline"></ion-icon></span></a> <br> <br>
-                                    <a href="formuser.php"> <button>Form User</button> </a>
-                                </td>
-                                </tr>
+							<?php
+								include("config.php");
+								$nomor = 1;
+								$sqldatauser = "SELECT * FROM user";
+								$resdatauser = mysqli_query($conn, $sqldatauser);
+								while($data = mysqli_fetch_array($resdatauser)){
+							?>
+								<tr>
+									<td><?php echo $nomor++; ?></td>
+									<td><?php echo $data['nama']; ?></td>
+									<td><?php echo $data['nik']; ?></td>
+									<td><?php echo $data['jenis_kelamin']; ?></td>
+									<td><?php echo $data['no_telepon']; ?></td>
+									<td><?php echo $data['email']; ?></td>
+									<td><?php echo $data['alamat_lengkap']; ?></td>
+									<td><?php echo $data['tempat_lahir']; ?></td>
+									<td>
+										<a href="delete.php?nik=<?php echo $data['nik']; ?>" class = "delete" onclick="return confirm('Apakah anda yakin ingin menghapus data pada Nama: <?php echo $data['nama']; ?> dan NIK: <?php echo $data['nik']; ?>?')"><span class="delete"><ion-icon name="trash-outline"></ion-icon></span></a> <br> <br>
+										<?php
+										if(isset($data['form_id_form'])){
+										?>
+										<a href="formuser.php?nik=<?php echo $data['nik']; ?>"> <button>Form User</button> </a>
+										<?php
+										}
+										?>
+									</td>
+								</tr>
+								<?php 
+									}
+								?>
                         </table>
                     </div>
 				</div>

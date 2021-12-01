@@ -106,8 +106,9 @@
 								
 								$sqlakun = "INSERT INTO akun (username, password, role) VALUES ('".strtolower($username)."', '$password', 'User')";
 								$sqluser = "INSERT INTO user (nik, nama, no_telepon, email, tempat_lahir, alamat_lengkap, jenis_kelamin, akun_id_akun) VALUES ('$nik', '".ucwords($nama)."', '$no_telepon', '".strtolower($email)."', '".ucwords($tempat_lahir)."', '".ucwords($alamat_lengkap)."', '$jenis_kelamin', '$id_akun')";
-								
+								$sqlusernik = "UPDATE akun SET user_nik = $nik WHERE id_akun = $id_akun";
 								if(mysqli_query($conn, $sqlakun) && mysqli_query($conn, $sqluser)){
+									mysqli_query($conn, $sqlusernik);
 									$_SESSION['username'] = $_SESSION['username_daftar'];
 									$_SESSION['id_akun'] = $id_akun;
 									$_SESSION['username_daftar'] = null;

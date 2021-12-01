@@ -1,3 +1,31 @@
+<?php
+	session_start();
+	if(!isset($_SESSION['username_admin'])){
+		echo "<script>
+			alert('Lakukan login terlebih dahulu di halaman awal untuk bisa mengakses website ini');
+			window.location = 'index.php';
+			</script>";
+		exit;
+	}
+?>
+<?php
+	include("config.php");
+	$nik = $_GET["nik"];
+	$sqlidform = "SELECT form_id_form FROM user WHERE nik = $nik";
+	$residform = mysqli_query($conn, $sqlidform);
+	$idform = mysqli_fetch_assoc($residform);
+	if(isset($idform['form_id_form'])){
+		$sqlform = "SELECT * FROM form INNER JOIN user ON user.nik = form.user_nik INNER JOIN hasil ON hasil.id_hasil = form.hasil_id_hasil WHERE user_nik = '$nik'";
+		$resform = mysqli_query($conn, $sqlform);
+		$form = mysqli_fetch_assoc($resform);
+	}
+	else{
+		echo "<script>
+			alert('Data yang dipilih belum melakukan screening, oleh sebab itu data form user tidak ada. Halaman dialihkan ke menu admin');
+			window.location = 'landingadmin.php';
+			</script>";
+	}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +48,7 @@
 			</div>
 			<div class="header-list">
             <ul>
-					<li onclick="window.location = 'profileadmin.php'">Profile</li>
+					<li onclick="window.location = 'landingadmin.php'">Back</li>
 					<li onclick="window.location = 'logout.php'">Logout</li>
 				</ul>
 			</div>
@@ -38,24 +66,31 @@
                                 <th>Apakah anda memiliki pasangan yang mengidap HIV/AIDS?</th>
                                 <th>Apakah anda atau pasangan pernah melakukan kontak dengan seseorang yang memiliki hepatitis B atau C?</th>
                                 <th>Apakah pernah menyuntikkan atau disuntikkan obat-obatan tanpa sepengetahuan dokter?</th>
-                                <th>Apakah pernah melakukan oral atau anal seks tanpa menggunakan pengaman (kondom)?</th>
+								<?php
+								if($form['jenis_kelamin'] == "Laki-Laki"){
+									echo "<th>Apakah pernah melakukan oral atau anal seks tanpa menggunakan pengaman (kondom)?</th>";
+								}
+								else if($form['jenis_kelamin'] == "Perempuan"){
+									echo "<th>Apakah Sedang Menstruasi?</th>";
+								}
+								?>
                                 <th>Kapan terakhir kali anda mendonorkan darah?</th>
                                 <th>Hasil</th>
                                 <th>Aksi</th>
                             </tr>
                             <tr>
-                                <td>20 Tahun</td>
-                                <td>50 Kg</td>
-                                <td>Tidak Pernah</td>
-                                <td>Tidak Pernah</td>
-                                <td>Tidak Pernah</td>
-                                <td>Tidak Pernah</td>
-                                <td>>3 Bulan</td>
-                                <td>Bisa Mendonorkan Darah</td>
-                                <td>Bekasi</td>
+                                <td><?php echo $form['umur']; ?> Tahun</td>
+                                <td><?php echo $form['berat_badan']; ?> Kg</td>
+                                <td><?php echo $form['hiv']; ?></td>
+                                <td><?php echo $form['pasangan_hiv']; ?></td>
+                                <td><?php echo $form['kontak_hepatitis']; ?></td>
+                                <td><?php echo $form['suntik']; ?></td>
+                                <td><?php echo $form['sex_period']; ?></td>
+                                <td><?php echo $form['riwayat_donor']; ?></td>
+                                <td><?php echo $form['hasil_form']; ?></td>
                                 <td>
-                                    <a href="updateadmin.php" class = "update"><span class="create"><ion-icon name="create-outline"></ion-icon></span></a> <br> <br>
-                                    <a href="delete.php" class = "delete" onclick="return confirm('you want to delete this data?')"><span class="delete"><ion-icon name="trash-outline"></ion-icon></span></a>
+                                    <a href="updateadmin.php?nik=<?php echo $form['nik']; ?>" class = "update"><span class="create"><ion-icon name="create-outline"></ion-icon></span></a> <br> <br>
+                                    <a href="deleteform.php?nik=<?php echo $form['nik']; ?>" class = "delete" onclick="return confirm('Apakah anda yakin ingin menghapus form pada Nama: <?php echo $form['nama']; ?> dan NIK: <?php echo $form['nik']; ?>?')"><span class="delete"><ion-icon name="trash-outline"></ion-icon></span></a>
                                 </td>
                                 </tr>
                         </table>
