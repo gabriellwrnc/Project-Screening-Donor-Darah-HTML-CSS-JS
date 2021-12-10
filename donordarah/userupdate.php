@@ -130,7 +130,7 @@ $profil = mysqli_fetch_assoc($resprofil);
                     $tempat_lahir = htmlspecialchars($_POST['tempat_lahir']);
                     $alamat_lengkap = htmlspecialchars($_POST['alamat_lengkap']);
 
-                    $sqlupdate = "UPDATE user SET nik = '$nik', nama = '$nama', no_telepon = '$no_telepon', email = '$email', tempat_lahir = '$tempat_lahir', jenis_kelamin = '$jenis_kelamin' WHERE nik = $tempnik";
+                    $sqlupdate = "UPDATE user SET nik = '$nik', nama = '$nama', no_telepon = '$no_telepon', email = '$email', tempat_lahir = '$tempat_lahir', jenis_kelamin = '$jenis_kelamin', alamat_lengkap = '$alamat_lengkap' WHERE nik = $tempnik";
                     if (mysqli_query($conn, $sqlupdate)) {
                         echo "<script>
 								alert('Update telah berhasil!, anda dialihan ke halaman profile');

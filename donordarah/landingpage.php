@@ -1,24 +1,26 @@
 <?php
-	session_start();
-	if(!isset($_SESSION['username'])){
-		echo "<script>
+session_start();
+if (!isset($_SESSION['username'])) {
+    echo "<script>
 				alert('Lakukan login terlebih dahulu di halaman awal user untuk bisa mengakses website ini');
 				window.location = 'loginuser.php';
 				</script>";
-		exit;
-	}
-	
-    
+    exit;
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Ayo Donor</title>
     <link rel="stylesheet" href="CSS/landingpage.css">
 </head>
+
 <body>
     <div class="wrapper">
         <div class="header">
@@ -33,17 +35,17 @@
             <div class="header-list">
                 <ul>
                     <li onclick="window.location = 'profile.php'">Profile</li>
-					<?php
-						include("config.php");
-						$username = $_SESSION["username"];
-						$sqlform = "SELECT akun.id_akun, user.form_id_form FROM akun INNER JOIN user ON akun.id_akun = user.akun_id_akun WHERE username = '$username' AND role = 'User'";
-						$resform = mysqli_query($conn, $sqlform);
-						$form = mysqli_fetch_assoc($resform);
-						if(!is_null($form['form_id_form'])){
-							echo "<li onclick='window.location = \"hasilform.php\"'>Form</li>";
-						}
-					?>
-                    
+                    <?php
+                    include("config.php");
+                    $username = $_SESSION["username"];
+                    $sqlform = "SELECT akun.id_akun, user.form_id_form FROM akun INNER JOIN user ON akun.id_akun = user.akun_id_akun WHERE username = '$username' AND role = 'User'";
+                    $resform = mysqli_query($conn, $sqlform);
+                    $form = mysqli_fetch_assoc($resform);
+                    if (!is_null($form['form_id_form'])) {
+                        echo "<li onclick='window.location = \"hasilform.php\"'>Form</li>";
+                    }
+                    ?>
+
                     <li onclick="window.location = 'logout.php'">Logout</li>
                 </ul>
             </div>
@@ -52,7 +54,9 @@
         <div class="main">
             <div class="container">
                 <ul>
-                    <li><h1>Selamat Datang, <?php echo $_SESSION['username']; ?></h1></li>
+                    <li>
+                        <h1>Selamat Datang, <?php echo $_SESSION['username']; ?></h1>
+                    </li>
                     <li>
                         <p>Website ini akan memudahkan kamu melakukan screening tanpa perlu</p>
                         <p>datang kerumah sakit atau tempat mendonorkan darah lainnya.</p>
@@ -63,10 +67,10 @@
                     </li>
                 </ul>
                 <?php
-					if(is_null($form['form_id_form'])){
-						echo "<a href = 'screening.php' class='btn-scr' style='--clr:#c3073f;'><span>Lakukan Screening</span></a>";
-					}
-				?>
+                if (is_null($form['form_id_form'])) {
+                    echo "<a href = 'screening.php' class='btn-scr' style='--clr:#c3073f;'><span>Lakukan Screening</span></a>";
+                }
+                ?>
             </div>
             <div class="logo-wrapper">
                 <img src="img/wrapperbackground.png" alt="">
@@ -77,7 +81,7 @@
             <ul>
                 <a href="#manfaat">
                     <li class="konten1">
-                        <h3>Manfaat</h3> 
+                        <h3>Manfaat</h3>
                         <h3> Mendonorkan</h3>
                     </li>
                 </a>
@@ -98,11 +102,11 @@
     </div>
 
     <div class="isi-konten" id="manfaat">
-        <div class="wrapper-konten" >
-            <h1 >Manfaat Mendonorkan</h1>
+        <div class="wrapper-konten">
+            <h1>Manfaat Mendonorkan</h1>
             <ul>
-                    <h3>1. Mendeteksi Penyakit Serius</h3>
-                    <p>Proses donor darah tentunya harus melalui beberapa prosedur. Tiap kali seseorang ingin mendonorkan darahnya, prosedur standarnya adalah pemferiksaan darah untuk mendeteksi penyakit serius. Sebut saja HIV, sifilis, hepatitis B, hepatitis C, hingga malaria. Hal ini penting dilakukan demi mengantisipasi adanya penularan penyakit melalui transfusi darah. Prosedur ini juga menjadi “lampu kuning” bagi pendonor agar lebih memperhatikan kondisi kesehatannya sendiri.</p>
+                <h3>1. Mendeteksi Penyakit Serius</h3>
+                <p>Proses donor darah tentunya harus melalui beberapa prosedur. Tiap kali seseorang ingin mendonorkan darahnya, prosedur standarnya adalah pemferiksaan darah untuk mendeteksi penyakit serius. Sebut saja HIV, sifilis, hepatitis B, hepatitis C, hingga malaria. Hal ini penting dilakukan demi mengantisipasi adanya penularan penyakit melalui transfusi darah. Prosedur ini juga menjadi “lampu kuning” bagi pendonor agar lebih memperhatikan kondisi kesehatannya sendiri.</p>
                 </li>
                 <li>
                     <h3>2. Meningkatkan Produksi Sel Darah</h3>
@@ -158,7 +162,7 @@
             <table style="text-align:center; margin:0 auto;">
                 <tr>
                     <td>Penerima</td>
-                    <td colspan="8" >Pendonor</td>
+                    <td colspan="8">Pendonor</td>
                 </tr>
                 <tr>
                     <td>Jenis Darah</td>
@@ -273,6 +277,7 @@
     </div>
 
 
-    
+
 </body>
+
 </html>

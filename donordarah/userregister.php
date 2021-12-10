@@ -16,7 +16,7 @@ if (!isset($_SESSION["username_daftar"])) {
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<title>Registrasi User</title>
 	<link rel="stylesheet" href="CSS/styleregister.css">
 </head>
 
@@ -59,16 +59,16 @@ if (!isset($_SESSION["username_daftar"])) {
 						<input type="text" name="alamat_lengkap" placeholder="Alamat Lengkap" required>
 						<p>Jenis Kelamin :</p>
 						<label>
-                            <input type="radio" name="jenis_kelamin" id="laki" value="Laki-Laki" >
-                            <span class="check"></span>
-                            Laki-Laki
-                        </label>
-                        <br>
-                        <label>
-                            <input type="radio" name="jenis_kelamin" id="perempuan" value="Perempuan">
-                            <span class="check"></span>
-                            Perempuan
-                        </label>
+							<input type="radio" name="jenis_kelamin" id="laki" value="Laki-Laki">
+							<span class="check"></span>
+							Laki-Laki
+						</label>
+						<br>
+						<label>
+							<input type="radio" name="jenis_kelamin" id="perempuan" value="Perempuan">
+							<span class="check"></span>
+							Perempuan
+						</label>
 
 						<input type="submit" class="submit" name="daftar2" value="Daftar">
 					</form>

@@ -222,7 +222,7 @@ if (isset($idform['form_id_form'])) {
 
 						$sqlscreening = "UPDATE form SET umur = '$umur', berat_badan = '$berat_badan', hiv = '$hiv', pasangan_hiv = '$pasangan_hiv', kontak_hepatitis = '$kontak_hepatitis', suntik = '$suntik', sex_period = '$sex_period', riwayat_donor = '$riwayat_donor' WHERE id_form = '$akun_id_akun'";
 
-						if ($umur < 17 && $umur > 50 || $berat_badan < 47 || $hiv == "Pernah" || $pasangan_hiv == "Pernah" || $kontak_hepatitis == "Pernah" || $suntik == "Pernah" || $hiv == "Pernah" || $sex_period == "Pernah" || $sex_period == "Iya" || $riwayat_donor == "<=3 Bulan") {
+						if ($umur < 17 || $umur > 50 || $berat_badan < 47 || $hiv == "Pernah" || $pasangan_hiv == "Pernah" || $kontak_hepatitis == "Pernah" || $suntik == "Pernah" || $hiv == "Pernah" || $sex_period == "Pernah" || $sex_period == "Iya" || $riwayat_donor == "<=3 Bulan") {
 							$sqlhasil = "UPDATE hasil SET hasil_form = 'Tidak dapat mendonorkan darah' WHERE id_hasil = '$akun_id_akun'";
 						} else {
 							$sqlhasil = "UPDATE hasil SET hasil_form = 'Bisa mendonorkan darah' WHERE id_hasil = '$akun_id_akun'";

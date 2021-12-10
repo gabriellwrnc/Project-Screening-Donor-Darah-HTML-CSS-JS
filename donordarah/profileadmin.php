@@ -25,7 +25,7 @@ $no_telepon = $profil['no_telepon'];
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Profile User</title>
+	<title>Landing Admin</title>
 	<link rel="stylesheet" href="CSS/profileadmin.css">
 </head>
 
