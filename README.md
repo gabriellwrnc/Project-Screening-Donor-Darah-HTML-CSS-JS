@@ -12,3 +12,7 @@ You can access this website by clicking this link http://screeningpendonor.000we
    Tujuan dari Website ini adalah tentunya agar tercapainya efektifitas waktu untuk melakukan donor darah di rumah sakit karena rumah sakit sendiri dimasa pandemi COVID-19 seperti ini bisa menjadi tempat untuk terpaparnya virus Corona dan juga agar tercapainya efisiensi yang maksimal dalam kinerja penanganan pendonor darah, agar pendonor yang datang kerumah sakit merupakan pendonor yang memang telah siap untuk mendonorkan darahnya sehingga pendonor yang mungkin datang jauh jauh dari luar daerah tidak perlu khawatir untuk ditolak saat mendonorkan darahnya.
 
 Basically website ini hanya dibuat menggunakan HTML, CSS, JavaScript, dan database MySQL sepengetahuan kami saja yang baru mengenal ilmu Pemrograman Web selama 6 bulan, so don't have high expectations on this website, we try our best !! :) 
+
+Preview website : 
+
+![Screenshot (215)](https://user-images.githubusercontent.com/90816980/145662584-8dd41122-3da9-40c2-ab1b-3d163ab22b2b.png)
