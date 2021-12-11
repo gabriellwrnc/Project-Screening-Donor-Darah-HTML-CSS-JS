@@ -15,4 +15,3 @@ Basically website ini hanya dibuat menggunakan HTML, CSS, JavaScript, dan databa
 
 Preview website : 
 
-![Screenshot (215)](https://user-images.githubusercontent.com/90816980/145662584-8dd41122-3da9-40c2-ab1b-3d163ab22b2b.png)
