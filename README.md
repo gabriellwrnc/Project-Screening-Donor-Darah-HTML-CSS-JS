@@ -1,9 +1,11 @@
 # Project-Screening-Donor-Darah
 
-This project 100% done !!!
+This project 90% done !!!
+Responsive is still on process :)
 
 Project ini sudah di hosting
-You can access this website by clicking this link http://screeningpendonor.000webhostapp.com
+You can access this website by clicking this link http://screeningpendonor.000webhostapp.com, this website is not responsive yet so coba buka pakai laptop ya:)
+
 
 *Ini adalah tugas Project Akhir kelompok saya yang saya ketuai untuk Praktikum mata kuliah Pemrograman Web Teknik Informatika semester 5
 
